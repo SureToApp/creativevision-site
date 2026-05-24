@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SureTo — Coming to Android</title>
+  <meta name="description" content="SureTo is coming to Android. Join the waitlist and be first to know." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Segoe UI", sans-serif;
+      background: #1A2420;
+      color: #F4F0E8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+    }
+
+    .card {
+      background: #243028;
+      border-radius: 28px;
+      padding: 48px 32px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+      border: 1px solid rgba(122, 158, 139, 0.2);
+    }
+
+    .logo-mark {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #7A9E8B, #4A9E7F);
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      box-shadow: 0 8px 32px rgba(74, 158, 127, 0.3);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(74, 158, 127, 0.15);
+      color: #4A9E7F;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .sub {
+      font-size: 16px;
+      color: #8A9E96;
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(122, 158, 139, 0.3);
+      background: rgba(255,255,255,0.05);
+      color: #F4F0E8;
+      font-size: 16px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="email"]::placeholder { color: #4A5E54; }
+    input[type="email"]:focus { border-color: rgba(74, 158, 127, 0.6); }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 17px;
+      border-radius: 14px;
+      border: none;
+      background: linear-gradient(135deg, #4A9E7F, #3D8A6B);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(74, 158, 127, 0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(74, 158, 127, 0.4);
+    }
+
+    button[type="submit"]:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .success {
+      display: none;
+      background: rgba(74, 158, 127, 0.1);
+      border: 1px solid rgba(74, 158, 127, 0.3);
+      border-radius: 14px;
+      padding: 20px;
+      color: #4A9E7F;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .already-ios {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .already-ios p {
+      font-size: 14px;
+      color: #5A6E64;
+      margin-bottom: 12px;
+    }
+
+    .ios-link {
+      display: inline-block;
+      background: rgba(122, 158, 139, 0.12);
+      color: #7A9E8B;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 1px solid rgba(122, 158, 139, 0.25);
+      transition: background 0.2s;
+    }
+
+    .ios-link:hover { background: rgba(122, 158, 139, 0.2); }
+
+    .footer {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #3A4E44;
+    }
+
+    .footer a { color: #4A6E5A; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo-mark">🌿</div>
+  <div class="badge">Android — Coming Soon</div>
+
+  <h1>SureTo is coming<br>to Android</h1>
+  <p class="sub">Enter your email and you'll be the first to know when SureTo launches on Android. No spam — just one email when it's ready.</p>
+
+  <div class="form" id="form-wrap">
+    <input
+      type="email"
+      id="email-input"
+      placeholder="your@email.com"
+      autocomplete="email"
+      required
+    />
+    <button type="submit" id="submit-btn" onclick="handleSubmit()">
+      Notify Me When It's Ready
+    </button>
+  </div>
+
+  <div class="success" id="success-msg">
+    ✓ You're on the list. We'll email you the moment SureTo hits the Play Store.
+  </div>
+
+  <div class="already-ios">
+    <p>Already have an iPhone?</p>
+    <a class="ios-link" href="https://apps.apple.com/app/sureto">
+      Download on iOS →
+    </a>
+  </div>
+
+  <p class="footer">
+    <a href="https://creativevision.app/privacy">Privacy Policy</a>
+    &nbsp;·&nbsp; Creative Vision LLC
+  </p>
+</div>
+
+<script>
+  const SUPABASE_URL = "https://mipfmjwuagpqblniveyu.supabase.co";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1pcGZtand1YWdwcWJsbml2ZXl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0NzY2MTQsImV4cCI6MjA5NDA1MjYxNH0.GRb2o1KrwX9eqjFAeHV25Y4NTbeQ1fI3nvlp2lmrPcE";
+
+  async function handleSubmit() {
+    const email = document.getElementById("email-input").value.trim();
+    const btn = document.getElementById("submit-btn");
+
+    if (!email || !email.includes("@")) {
+      document.getElementById("email-input").focus();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "Adding you...";
+
+    try {
+      await fetch(`${SUPABASE_URL}/rest/v1/android_waitlist`, {
+        method: "POST",
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": `Bearer ${SUPABASE_KEY}`,
+          "Content-Type": "application/json",
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify({
+          email: email,
+          signed_up_at: new Date().toISOString(),
+          source: document.referrer || "direct"
+        })
+      });
+    } catch (e) {
+      // Silently fail — show success anyway
+    }
+
+    document.getElementById("form-wrap").style.display = "none";
+    document.getElementById("success-msg").style.display = "block";
+  }
+
+  // Allow Enter key to submit
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") handleSubmit();
+  });
+</script>
+
+</body>
+</html>
