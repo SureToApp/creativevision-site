@@ -1,8 +1,11 @@
 {
   "rewrites": [
     { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/privacy/", "destination": "/privacy.html" },
     { "source": "/android", "destination": "/android.html" },
+    { "source": "/android/", "destination": "/android.html" },
     { "source": "/partner/:code", "destination": "/partner.html" },
     { "source": "/support", "destination": "/support.html" }
-  ]
+  ],
+  "cleanUrls": true
 }
