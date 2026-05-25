@@ -5,29 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SureTo — Privacy Policy</title>
   <style>
+    :root {
+      --bg: #F4F0E8;
+      --bg2: #ffffff;
+      --text: #2F2A26;
+      --text2: #5A5450;
+      --muted: #8A8480;
+      --border: #E8E0D4;
+      --accent: #3D7A6A;
+      --header-bg: #243028;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1A2420;
+        --bg2: #243028;
+        --text: #F4F0E8;
+        --text2: #C8C4BC;
+        --muted: #7A8A82;
+        --border: rgba(122,158,139,0.2);
+        --accent: #7A9E8B;
+        --header-bg: #141e1b;
+      }
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-      background: #F4F0E8;
-      color: #2F2A26;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
     }
 
-    @media (prefers-color-scheme: dark) {
-      body { background: #1A2420; color: #F4F0E8; }
-      .card { background: #243028; border-color: rgba(122,158,139,0.15); }
-      h2 { color: #7A9E8B; }
-      .muted { color: #6A7A72; }
-      a { color: #7A9E8B; }
-    }
-
     header {
-      background: #243028;
+      background: var(--header-bg);
       padding: 20px 24px;
       display: flex;
       align-items: center;
-      gap: 12px;
     }
 
     .logo {
@@ -49,17 +64,18 @@
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 6px;
+      color: var(--text);
     }
 
     .muted {
       font-size: 13px;
-      color: #6A7A72;
+      color: var(--muted);
       margin-bottom: 40px;
     }
 
     .card {
-      background: white;
-      border: 1px solid #E8E0D4;
+      background: var(--bg2);
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px 32px;
       margin-bottom: 20px;
@@ -68,34 +84,39 @@
     h2 {
       font-size: 17px;
       font-weight: 700;
-      color: #3D7A6A;
+      color: var(--accent);
       margin-bottom: 12px;
     }
 
-    p { margin-bottom: 12px; font-size: 15px; }
+    p {
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: var(--text2);
+    }
+
     p:last-child { margin-bottom: 0; }
 
     ul {
       margin: 10px 0 12px 20px;
       font-size: 15px;
+      color: var(--text2);
     }
 
     ul li { margin-bottom: 6px; }
 
-    a { color: #3D7A6A; }
+    a { color: var(--accent); }
 
     .contact-box {
-      background: #F0F7F4;
-      border: 1px solid #C8DDD6;
+      background: var(--bg2);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 20px 24px;
       margin-top: 32px;
       font-size: 14px;
+      color: var(--text2);
     }
 
-    @media (prefers-color-scheme: dark) {
-      .contact-box { background: #1E2E28; border-color: rgba(122,158,139,0.2); }
-    }
+    strong { color: var(--text); }
   </style>
 </head>
 <body>
@@ -106,97 +127,76 @@
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: May 16, 2026 &nbsp;·&nbsp; Creative Vision LLC</p>
+  <p class="muted">Last updated: May 2026 &nbsp;·&nbsp; Creative Vision LLC</p>
 
   <div class="card">
     <h2>Overview</h2>
-    <p>SureTo ("the app") is built by Creative Vision LLC ("we," "us," or "our"). This policy explains what information we collect, how we use it, and your rights. We are committed to handling your data with care and transparency.</p>
-    <p>SureTo is a food safety scanner. The core safety features — scanning, verdicts, allergen detection, recall alerts — are free and do not require an account.</p>
+    <p>SureTo is built by Creative Vision LLC. This policy explains what information we collect, how we use it, and your rights. The core safety features — scanning, verdicts, allergen detection, recall alerts — are free and do not require an account.</p>
   </div>
 
   <div class="card">
     <h2>Information We Collect</h2>
-    <p><strong>Device identifier.</strong> On first launch, the app generates an anonymous device ID. This is a random string that identifies your device — it does not contain your name, email, Apple ID, or any personally identifiable information. It is used to manage your subscription tier and app preferences.</p>
-    <p><strong>Email address (optional).</strong> If you choose to link an email address — for example, to restore Founders Circle access on a new device — we store that email alongside your device ID in our database. Providing an email is optional.</p>
-    <p><strong>Scan activity.</strong> We store scan counts (how many products you've scanned) associated with your device ID. We do not store which specific barcodes you scanned or which products you viewed in identifiable form.</p>
-    <p><strong>Camera access.</strong> The app accesses your camera only to scan barcodes and photograph ingredient labels. Camera images are processed entirely on your device. Label photos are never uploaded to our servers.</p>
-    <p><strong>Usage data.</strong> We may collect anonymous, aggregated usage statistics — such as total scans across all users or most common product categories — to improve the app. This data cannot be used to identify individual users.</p>
+    <p><strong>Device identifier.</strong> On first launch, the app generates an anonymous device ID — a random UUID with no connection to your name, email, or Apple account. Used to manage your subscription tier.</p>
+    <p><strong>Email address (optional).</strong> If you link an email to restore Founders Circle access, we store it alongside your device ID.</p>
+    <p><strong>Scan activity.</strong> We store scan counts associated with your device ID. We do not store which specific barcodes you scanned in identifiable form.</p>
+    <p><strong>Camera access.</strong> Used only to scan barcodes and photograph ingredient labels. Camera images are processed entirely on your device and never uploaded.</p>
   </div>
 
   <div class="card">
     <h2>Information We Do Not Collect</h2>
     <ul>
-      <li>We do not collect your name, address, or phone number.</li>
-      <li>We do not track your location.</li>
-      <li>We do not sell your data to advertisers.</li>
-      <li>We do not share your personal information with third parties for marketing purposes.</li>
-      <li>We do not upload camera images or label photos to our servers.</li>
-      <li>We do not use third-party advertising SDKs.</li>
+      <li>Your name, address, or phone number</li>
+      <li>Your location</li>
+      <li>Which specific products you scan</li>
+      <li>Camera images or label photos</li>
+      <li>Advertising identifiers or tracking data</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>How We Use Your Information</h2>
     <ul>
-      <li>To manage your subscription tier (Free, Pro, Premium, or Founders Circle).</li>
-      <li>To restore your access on a new device if you've linked an email address.</li>
-      <li>To display your scan statistics in the app.</li>
-      <li>To improve the app through anonymous, aggregated usage analysis.</li>
-      <li>To send optional weekly digest notifications if you have enabled them.</li>
+      <li>To manage your subscription tier</li>
+      <li>To restore your access on a new device</li>
+      <li>To display your scan statistics in the app</li>
+      <li>To send optional weekly digest notifications</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>Third-Party Services</h2>
-    <p>SureTo retrieves product information from publicly available databases. When you scan a barcode, the app makes a network request to one or more of the following:</p>
-    <ul>
-      <li><strong>Open Food Facts</strong> (world.openfoodfacts.org) — open database, no account required</li>
-      <li><strong>USDA FoodData Central</strong> (fdc.nal.usda.gov) — US government database</li>
-      <li><strong>Open Beauty Facts</strong> (world.openbeautyfacts.org) — open database</li>
-      <li><strong>UPC Item DB</strong> — barcode lookup service</li>
-      <li><strong>openFDA</strong> (api.fda.gov) — US FDA recall database</li>
-    </ul>
-    <p>These requests include the barcode you scanned. We do not send any personal information with these requests.</p>
-    <p><strong>Supabase.</strong> We use Supabase (supabase.com) to store device IDs, subscription tiers, and optional email addresses. Supabase is hosted on AWS infrastructure and complies with GDPR and SOC 2 Type II standards.</p>
+    <p>When you scan a barcode, the app requests product data from Open Food Facts, USDA FoodData Central, Open Beauty Facts, UPC Item DB, and openFDA. These requests include the barcode only — no personal information is sent.</p>
+    <p><strong>Supabase</strong> stores device IDs and subscription tiers on AWS infrastructure compliant with GDPR and SOC 2 Type II. Payments are handled entirely by Apple — we never receive your payment details.</p>
   </div>
 
   <div class="card">
-    <h2>Subscriptions and Payments</h2>
-    <p>All in-app purchases are processed by Apple through the App Store. We do not receive or store your payment information. Apple's privacy policy governs payment processing.</p>
+    <h2>Children</h2>
+    <p>SureTo is not directed at children under 13. We do not knowingly collect data from children. Contact us if you believe a child has provided us with information.</p>
   </div>
 
   <div class="card">
-    <h2>Children's Privacy</h2>
-    <p>SureTo is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
-  </div>
-
-  <div class="card">
-    <h2>Data Retention</h2>
-    <p>We retain your device ID and associated data for as long as you use the app. If you delete the app and request deletion of your data, we will remove your device ID and associated records from our database within 30 days.</p>
+    <h2>Data Retention & Deletion</h2>
+    <p>We retain your device ID and associated data as long as you use the app. To request deletion, contact us at support@creativevision.app. We will remove your records within 30 days.</p>
   </div>
 
   <div class="card">
     <h2>Your Rights</h2>
-    <p>You have the right to:</p>
     <ul>
-      <li>Request a copy of the data we hold associated with your device ID.</li>
-      <li>Request deletion of your data.</li>
-      <li>Opt out of optional data collection (scan count tracking) in app settings.</li>
+      <li>Request a copy of the data associated with your device ID</li>
+      <li>Request deletion of your data</li>
+      <li>Opt out of optional scan count tracking in app settings</li>
     </ul>
-    <p>To exercise any of these rights, contact us at the address below.</p>
   </div>
 
   <div class="card">
-    <h2>Changes to This Policy</h2>
-    <p>We may update this privacy policy from time to time. When we do, we will update the date at the top of this page. We encourage you to review this policy periodically. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+    <h2>Changes</h2>
+    <p>We may update this policy from time to time. Continued use of the app after changes constitutes acceptance. The date at the top of this page always reflects the latest version.</p>
   </div>
 
   <div class="contact-box">
     <strong>Contact</strong><br><br>
     Creative Vision LLC<br>
-    Email: <a href="mailto:privacy@creativevision.app">privacy@creativevision.app</a><br>
-    Support: <a href="https://creativevision.app/support">creativevision.app/support</a><br><br>
-    This privacy policy was last updated May 16, 2026.
+    Email: <a href="mailto:support@creativevision.app">support@creativevision.app</a>
   </div>
 </main>
 
